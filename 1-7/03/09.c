@@ -8,5 +8,5 @@ to find out what is the day on 1st January of this year.
 
 int main()
 {
-    return 0;
+    return 1;
 }
