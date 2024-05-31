@@ -1,21 +1,43 @@
 #include <stdio.h>
-#include <math.h>
-int main()
-{
-    int i, x[10], y[10];
-    float sum = 0;
-    printf("\nEnter the coordinates for the points: ");
-    for (i = 0; i <= 9; i++)
-    {
-        printf("\nX[ %d ] = ", i + 1);
-        scanf("%d", &x[i]);
-        printf("Y[ %d ] = ", i + 1);
-        scanf("%d", &y[i]);
+
+// Function to print a 2D array
+void print2DArray(int rows, int cols, int arr[rows][cols]) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            printf("%d ", arr[i][j]);
+        }
+        printf("\n");
     }
-    for (i = 0; i <= 8; i++)
-        sum = sum + sqrt(pow((x[i + 1] - x[i]), 2) + pow((
-                                                             y[i + 1] - y[i]),
-                                                         2));
-    printf("\nDistance of the last point from the first point = %.2f\n", sum);
+}
+
+// Function to modify a 2D array
+void modify2DArray(int rows, int cols, int arr[rows][cols]) {
+    for (int i = 0; i < rows; i++) {
+        for (int j = 0; j < cols; j++) {
+            arr[i][j] += 1; // Example modification: increment each element by 1
+        }
+    }
+}
+
+int main() {
+    int rows = 3;
+    int cols = 3;
+    
+    // Initialize a 2D array
+    int array[3][3] = {
+        {1, 2, 3},
+        {4, 5, 6},
+        {7, 8, 9}
+    };
+
+    printf("Original array:\n");
+    print2DArray(rows, cols, array);
+
+    // Modify the array
+    modify2DArray(rows, cols, array);
+
+    printf("Modified array:\n");
+    print2DArray(rows, cols, array);
+
     return 0;
 }
