@@ -9,3 +9,26 @@ value X to denote 10. Write a program that receives a 10-digit
 integer, computes the checksum, and reports whether the ISBN
 number is correct or not.
 */
+
+#include <stdio.h>
+
+int main()
+{
+    char str[11];
+    printf("Enter ISBN: ");
+    scanf("%s", &str);
+    int sum = 0;
+    for (int i = 9; i >= 0; i--)
+    {
+        sum += (str[i] - '0') * (10 - i);
+    }
+    if (sum % 11 == 0)
+    {
+        printf("Valid ISBN\n");
+    }
+    else
+    {
+        printf("Invalid ISBN\n");
+    }
+    return 0;
+}
