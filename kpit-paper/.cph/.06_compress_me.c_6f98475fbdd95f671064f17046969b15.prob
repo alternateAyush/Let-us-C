@@ -1,0 +1,1 @@
+{"name":"Local: 06_compress_me","url":"c:\\Users\\ayush\\OneDrive\\Documents\\GitHub\\Let us C\\kpit-paper\\06_compress_me.c","tests":[{"id":1717757290475,"input":"123aaabbbbvvvv","output":""}],"interactive":false,"memoryLimit":1024,"timeLimit":3000,"srcPath":"c:\\Users\\ayush\\OneDrive\\Documents\\GitHub\\Let us C\\kpit-paper\\06_compress_me.c","group":"local","local":true}
