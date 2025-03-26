@@ -12,20 +12,24 @@ Write a program to print out the sequence in which the disks should
 be moved such that all disks on peg A are finally transferred to peg
 C.
 */
-
 #include <stdio.h>
 
-int main(){
-    int A[3];
-    int B[3];
-    int C[3];
-    int s=1;
-    for(int i=0; i<3; i++){
-        A[i]=s;
-        s++;
-        B[i]=0;
-        C[i]=0;
+void hanoi(int n,int start,int end){
+    char c='A'-1;
+    if(n<1) return;
+    if(n==1){
+        printf("%c -> %c\n",c+start,c+end);
+    }else{
+        int other = 6 - (start+end);
+        hanoi(n-1,start,other);
+        printf("%c -> %c\n",c+start,c+end);
+        hanoi(n-1,other,end);
     }
-    
+}
+
+int main(){
+    int n;
+    scanf("%d",&n);
+    hanoi(n,1,3);
     return 0;
 }

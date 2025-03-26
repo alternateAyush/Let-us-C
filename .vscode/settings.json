@@ -3,6 +3,8 @@
     "*.ejs": "html",
     "math.h": "c",
     "malloc.h": "c",
-    "string.h": "c"
+    "string.h": "c",
+    "stdio.h": "c",
+    "stdlib.h": "c"
   }
 }

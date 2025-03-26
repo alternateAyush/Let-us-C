@@ -5,8 +5,8 @@
 
 int main(){
     extern int y;
-    printf("%d\n",y);
     y=9;
+    printf("%d\n",y);
     return 0;
 }
 int y=10;

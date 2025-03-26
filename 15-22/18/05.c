@@ -28,7 +28,7 @@ int main()
                          {"One More Over", "Erapalli Prasanna", 85.00}};
     for (int i = 0; i < n; i++)
     {
-        printf("%-30s %-30s %10.2f\n", arr[i].name, arr[i].author, arr[i].price);
+        printf("%-30s %-30s %-10.5f\n", arr[i].name, arr[i].author, arr[i].price);
     }
     return 0;
 }

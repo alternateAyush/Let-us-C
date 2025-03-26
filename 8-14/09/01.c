@@ -7,16 +7,16 @@ circularly shift values.
 
 #include <stdio.h>
 
-void circularShift(int *a, int *b, int *c)
+void circularShift(int *a,int *b,int *c)
 {
-    int t1 = *a, t2 = *b;
+    int t=*a;
     *a = *c;
-    *b = t1;
-    *c = t2;
+    *c = *b;
+    *b = t;
     return;
 }
 
-int main()
+unsigned int main()
 {
     int x, y, z;
     printf("Enter x,y,z: ");

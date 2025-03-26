@@ -7,50 +7,49 @@ matrix and get its rows left shifted.
 
 #include <stdio.h>
 
-void swapping(int arr[4][5], int start, int end, int i)
-{
-    while (start < end)
-    {
-        arr[i][start] ^= arr[i][end];
-        arr[i][end] ^= arr[i][start];
-        arr[i][start] ^= arr[i][end];
-        start++;
-        end--;
+void swap(int *a,int *b){
+    *a=*a^*b;
+    *b=*a^*b;
+    *a=*a^*b;
+}
+
+void swapArr(int low,int high,int i,int **arr){
+    while(low<high){
+        swap(&arr[i][low],&arr[i][high]);
+        low++;
+        high--;
     }
     return;
 }
 
-void func(int arr[4][5])
-{
-    for (int i = 0; i < 4; i++)
-    {
-        swapping(arr, 0, 4, i);
-        swapping(arr, 3, 4, i);
-        swapping(arr, 0, 2, i);
+void shiftLeftByD(int n,int m,int d,int **arr){
+    for(int i=0; i<n; i++){
+        swapArr(0,m-1,i,arr);
+        swapArr(0,m-d-1,i,arr);
+        swapArr(m-d,m-1,i,arr);
     }
     return;
 }
 
-int main()
-{
-    int arr[4][5];
-    printf("Enter array elements:\n");
-    for (int i = 0; i < 4; i++)
-    {
-        for (int j = 0; j < 5; j++)
-        {
-            scanf("%d", &arr[i][j]);
+int main(){
+    int n,m,d;
+    scanf("%d %d %d",&n,&m,&d);
+    int **arr = (int **) malloc(n*sizeof(int *));
+    if(arr==NULL){
+        printf("failed!!!");
+        return 1;
+    }
+    for(int i=0; i<n; i++){
+        arr[i] = (int *) malloc(m*sizeof(int));
+        for(int j=0; j<m; j++){
+            scanf("%d",&arr[i][j]);
         }
     }
-    printf("4*5 Array after left rotation by 2:\n");
-    func(arr);
-    for (int i = 0; i < 4; i++)
-    {
-        for (int j = 0; j < 5; j++)
-        {
-            printf("%d ", arr[i][j]);
+    shiftLeftByD(n,m,d,arr);
+    for(int i=0; i<n; i++){
+        for(int j=0; j<m; j++){
+            printf("%d ",arr[i][j]);
         }
         printf("\n");
     }
-    return 0;
 }
